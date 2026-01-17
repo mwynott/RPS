@@ -31,10 +31,10 @@
     }
 }
 
-
-
 //Create variable named humanScore and initialize to 0
 //Create variable named computerScore and initialize to 0
+    let humanScore = 0;
+    let computerScore = 0;
 
 //Create a function named playRound(humanChoice, computerChoice) 
 // <--uses human and computer choice as arguments
