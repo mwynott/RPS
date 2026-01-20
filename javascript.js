@@ -1,46 +1,32 @@
-//Create a function named getComputerChoice
-//getComputerChoice should return rock, paper, or scissors
+    let humanSelection = getHumanChoice()
+    let computerSelection = getComputerChoice()
+    let computerScore = 0;
+    let humanScore = 0;
+    
 
     function getComputerChoice() {
-        const random = Math.random();
-        if (random < .34) {
+        const computerSelection = Math.random();
+        if (computerSelection < .34) {
         return "rock";
     }
-        else if (random <= .67) {
+        else if (computerSelection <= .67) {
         return "paper";
     }   else {
         return "scissors";
     }
 }
 
-//Create a function named getHumanChoice
-
-//getHumanChoice returns valid choices depending on what user inputs
-//Use prompt to get user input
-//Make humanChoice case-insensitive 
-
     function getHumanChoice() {
         while (true) {
-        let choice = prompt("Rock, paper, scissors?").toLowerCase();    
-        if (choice === "rock" || choice === "paper" || choice === "scissors") {
+        let humanSelection = prompt("Rock, paper, scissors?").toLowerCase();    
+        if (humanSelection === "rock" || humanSelection === "paper" || humanSelection === "scissors") {
             console.log("Rock, paper, scissors...shoot!");
-            return choice;
+            return humanSelection;
         } else {
             alert("Please choose rock, paper, or scissors!");
         }
     }
 }
-
-//Create variable named humanScore and initialize to 0
-//Create variable named computerScore and initialize to 0
-    
-    let humanScore = 0;
-    let computerScore = 0;
-
-//Create a function named playRound
-// <--uses human and computer choices as arguments
-//playRound should console.log a string value for winner
-//Increment humanScore or computerScore variable based on winner
 
     function playRound(humanSelection, computerSelection) {
 
@@ -65,18 +51,31 @@
                 }
             }
         
-    const humanSelection = getHumanChoice()
-    const computerSelection = getComputerChoice()
+    function playGame() {
+        humanScore = 0;
+        computerScore = 0;
+        const rounds = 5;
 
-    playRound(humanSelection, computerSelection);
+        for (let i = 0; i < rounds; i++) {
+            humanSelection = prompt("Rock, paper, scissors?");
+            computerSelection = getComputerChoice();
+            let result = playRound(humanSelection, computerSelection);
 
+            if (result === "Human wins!") {
+                humanScore++;
+            } else if (result === "Computer wins!") {
+                computerScore++;
+            }
+        }
+        if (humanScore > computerScore) {
+            console.log(`Human score: ${humanScore} Computer score: ${computerScore} You won the game!`);
+        } else if (computerScore > humanScore) {
+            console.log(`Human score: ${humanScore} Computer score: ${computerScore} Computer  wins!`);
+        } else {
+            console.log(`Human score: ${humanScore} Computer score: ${computerScore} The game is a draw!`);
+        }
+    }
 
-//Increment humanScore or computerScore variable based on winner
-
-
-
-//Create function named playGame for game logic incl. rounds
-//Move playRound function and score variables into playGame function
-//Play 5 rounds by calling playRound 5 times
+    playGame();
 
 
